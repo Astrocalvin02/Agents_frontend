@@ -263,6 +263,42 @@
       box-shadow: 0 4px 22px rgba(236, 72, 153, 0.5);
     }
 
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--emerald-accent);
+      padding: 0.4rem 0.95rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald-accent);
+      box-shadow: 0 0 10px var(--emerald-accent);
+      animation: pulse-glow 2s infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
+    }
+
     /* Main Full-Screen Layout */
     .app-container {
       display: flex;
@@ -2106,8 +2142,12 @@ return escapeHtml(text)
 }
 
 function escapeHtml(str) {
-return str.replace(/&/g, "&amp;").replace(/</g, "&lt;" ).replace( />/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g,
-"&#039;");
+if (!str) return '';
+return String(str)
+.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;" ) .replace( />/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#039;");
 }
 
 // ----------------------------------------------------
@@ -2254,9 +2294,7 @@ Defensible Moats\n1. **Speed Moat**: Groq Llama-3 infrastructure delivers result
   parsing to browser application auto-fill.`, swot_analysis: `### Comprehensive SWOT Matrix & Strategic Action
   Plan\n\n### Matrix Quadrants\n* **Strengths**: Sub-second AI latency, high gross margins, scalable architecture.\n*
   **Weaknesses**: Early-stage brand with zero legacy domain authority.\n* **Opportunities**: University career
-  licensing, B2B outplacement contracts.\n* **Threats**: Incumbent platforms introducing basic built-in AI
-  generators.\n\n### Strategic Action Items\n* **SO Strategy**: Accelerate B2B university partnerships using speed &
-  latency advantages.\n* **WT Strategy**: Protect against copycats by building deep browser auto-fill workflow hooks.`
+  licensing, B2B outplacement contracts.\n* **Threats**: Incumbent platforms introducing basic built-in AI generators.`
   }; let count=0; const keys=Object.keys(AGENT_CONFIG); keys.forEach((key, index)=> {
   setTimeout(() => {
   count++;
