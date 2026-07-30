@@ -13,12 +13,12 @@
 
 <style>
 :root {
-  --bg-dark: #06050e;
-  --bg-surface: #0e0a1d;
-  --bg-surface-2: #151029;
-  --bg-card: rgba(20, 16, 42, 0.85);
-  --border: rgba(139, 92, 246, 0.2);
-  --border-highlight: rgba(168, 85, 247, 0.5);
+  --bg-dark: #05040b;
+  --bg-surface: #0c0919;
+  --bg-surface-2: #140f28;
+  --bg-card: rgba(18, 14, 38, 0.85);
+  --border: rgba(139, 92, 246, 0.18);
+  --border-highlight: rgba(168, 85, 247, 0.45);
   
   --purple-glow: #8b5cf6;
   --purple-accent: #a855f7;
@@ -35,9 +35,9 @@
   --text-muted: #9ca3af;
   --text-dim: #6b7280;
   
-  --glass-bg: rgba(14, 10, 29, 0.8);
+  --glass-bg: rgba(12, 9, 25, 0.85);
   --glass-border: 1px solid rgba(139, 92, 246, 0.25);
-  --shadow-purple: 0 10px 40px 0 rgba(112, 26, 239, 0.3);
+  --shadow-purple: 0 12px 45px 0 rgba(112, 26, 239, 0.3);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
@@ -52,25 +52,25 @@ body {
   position: relative;
 }
 
-/* FLOATING AMBIENT GLOW ORBS ANIMATION */
+/* FLOATING GLOWING AMBIENT BACKGROUND ORBS */
 .ambient-orb {
-  position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; opacity: 0.35;
+  position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; opacity: 0.35;
 }
-.orb-1 { width: 350px; height: 350px; background: var(--purple-glow); top: 10%; left: -5%; animation: floatOrb1 18s infinite ease-in-out; }
-.orb-2 { width: 400px; height: 400px; background: var(--pink-accent); bottom: 15%; right: -5%; animation: floatOrb2 22s infinite ease-in-out; }
-.orb-3 { width: 300px; height: 300px; background: var(--indigo-accent); top: 45%; left: 45%; animation: floatOrb3 20s infinite ease-in-out; }
+.orb-1 { width: 450px; height: 450px; background: var(--purple-glow); top: -10%; left: -5%; animation: floatOrb1 18s infinite ease-in-out; }
+.orb-2 { width: 500px; height: 500px; background: var(--pink-accent); bottom: -10%; right: -5%; animation: floatOrb2 22s infinite ease-in-out; }
+.orb-3 { width: 350px; height: 350px; background: var(--cyan-accent); top: 40%; left: 40%; animation: floatOrb3 20s infinite ease-in-out; }
 
 @keyframes floatOrb1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, 40px) scale(1.15); }
+  50% { transform: translate(70px, 50px) scale(1.2); }
 }
 @keyframes floatOrb2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-50px, -60px) scale(1.2); }
+  50% { transform: translate(-60px, -70px) scale(1.15); }
 }
 @keyframes floatOrb3 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-40px, 50px) scale(0.9); }
+  50% { transform: translate(-50px, 60px) scale(0.95); }
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -80,38 +80,47 @@ body {
 
 /* Header */
 header {
-  background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-bottom: var(--glass-border); padding: 0.85rem 2rem; display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
 }
 
 .logo-container { display: flex; align-items: center; gap: 0.75rem; }
 .logo-icon {
-  width: 38px; height: 38px; background: linear-gradient(135deg, var(--purple-accent), var(--pink-accent));
-  border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
-  box-shadow: 0 0 18px rgba(168, 85, 247, 0.6); animation: floatSmall 4s ease-in-out infinite;
+  width: 40px; height: 40px; background: linear-gradient(135deg, var(--purple-accent), var(--pink-accent));
+  border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6); animation: floatLogo 4s ease-in-out infinite;
 }
 
-@keyframes floatSmall {
+@keyframes floatLogo {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
 }
 
 .logo-text {
-  font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px;
+  font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px;
   background: linear-gradient(135deg, #ffffff 30%, var(--purple-bright) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
 .logo-tag {
-  font-size: 0.65rem; font-weight: 600; padding: 2px 8px; background: rgba(168, 85, 247, 0.15);
+  font-size: 0.65rem; font-weight: 700; padding: 3px 9px; background: rgba(168, 85, 247, 0.15);
   border: 1px solid var(--border-highlight); color: var(--purple-bright); border-radius: 12px; text-transform: uppercase;
 }
+
+.header-actions { display: flex; align-items: center; gap: 1rem; }
+
+.export-master-btn {
+  padding: 0.5rem 1.1rem; background: linear-gradient(135deg, var(--purple-accent), var(--pink-accent));
+  color: #fff; border: none; border-radius: 10px; font-size: 0.8rem; font-weight: 800; cursor: pointer;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.export-master-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(236, 72, 153, 0.5); }
 
 .header-status {
   display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem;
   background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--emerald-accent);
-  padding: 0.35rem 0.85rem; border-radius: 20px; font-weight: 600;
+  padding: 0.4rem 0.95rem; border-radius: 20px; font-weight: 600;
 }
 .status-dot {
   width: 8px; height: 8px; border-radius: 50%; background: var(--emerald-accent);
@@ -120,11 +129,11 @@ header {
 @keyframes pulse-glow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
 
 /* App Layout */
-.app-container { display: flex; flex: 1; height: calc(100vh - 63px); position: relative; z-index: 1; }
+.app-container { display: flex; flex: 1; min-height: calc(100vh - 65px); position: relative; z-index: 1; }
 
-/* Sidebar */
+/* Sidebar Nav */
 .sidebar {
-  width: 260px; min-width: 260px; background: var(--bg-surface); border-right: var(--glass-border);
+  width: 270px; min-width: 270px; background: var(--bg-surface); border-right: var(--glass-border);
   display: flex; flex-direction: column; overflow: hidden;
 }
 .sidebar-tabs { display: flex; border-bottom: var(--glass-border); background: rgba(0, 0, 0, 0.2); }
@@ -141,21 +150,21 @@ header {
 }
 
 .agent-item {
-  padding: 0.75rem 0.85rem; border-radius: 10px; cursor: pointer;
+  padding: 0.75rem 0.85rem; border-radius: 12px; cursor: pointer;
   display: flex; align-items: center; gap: 0.75rem; margin-bottom: 6px;
-  background: transparent; border: 1px solid transparent; transition: all 0.2s ease;
-  font-size: 0.84rem; font-weight: 500;
+  background: transparent; border: 1px solid transparent; transition: all 0.25s ease;
+  font-size: 0.85rem; font-weight: 500;
 }
-.agent-item:hover { background: var(--bg-surface-2); border-color: var(--border); transform: translateX(3px); }
+.agent-item:hover { background: var(--bg-surface-2); border-color: var(--border); transform: translateX(4px); }
 .agent-item.active {
-  background: linear-gradient(90deg, rgba(139, 92, 246, 0.18), rgba(168, 85, 247, 0.05));
-  border-color: var(--border-highlight); color: var(--purple-bright); font-weight: 600;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.22), rgba(168, 85, 247, 0.06));
+  border-color: var(--border-highlight); color: var(--purple-bright); font-weight: 700;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
 }
 
 .agent-icon {
-  font-size: 1.1rem; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
-  background: rgba(139, 92, 246, 0.1); border-radius: 6px; border: 1px solid rgba(139, 92, 246, 0.2);
+  font-size: 1.1rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+  background: rgba(139, 92, 246, 0.1); border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.25);
 }
 .agent-item.active .agent-icon { background: var(--purple-accent); color: #fff; border-color: transparent; }
 
@@ -188,47 +197,47 @@ header {
 
 /* Form Card */
 .form-card {
-  background: var(--bg-card); backdrop-filter: blur(14px); border: var(--glass-border);
-  border-radius: 16px; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: var(--shadow-purple);
+  background: var(--bg-card); backdrop-filter: blur(16px); border: var(--glass-border);
+  border-radius: 18px; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: var(--shadow-purple);
 }
 .form-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--purple-glow), var(--pink-accent), var(--cyan-accent));
 }
 
 .form-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
-.form-title { font-size: 1rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.5rem; }
+.form-title { font-size: 1.05rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 0.5rem; }
 
 .preset-pills { display: flex; gap: 0.5rem; align-items: center; }
 .preset-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
 .preset-pill {
-  font-size: 0.7rem; padding: 0.25rem 0.65rem; background: rgba(139, 92, 246, 0.12);
+  font-size: 0.72rem; padding: 0.3rem 0.75rem; background: rgba(139, 92, 246, 0.12);
   border: 1px solid var(--border); color: var(--purple-bright); border-radius: 12px;
-  cursor: pointer; transition: all 0.2s; font-weight: 500;
+  cursor: pointer; transition: all 0.2s; font-weight: 600;
 }
-.preset-pill:hover { background: var(--purple-accent); color: #fff; transform: translateY(-1px); }
+.preset-pill:hover { background: var(--purple-accent); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); }
 
 .form-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .field { display: flex; flex-direction: column; gap: 0.4rem; }
 .field label { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
 input, textarea, select {
-  width: 100%; padding: 0.65rem 0.85rem; background: rgba(7, 6, 17, 0.7);
-  border: 1px solid var(--border); border-radius: 10px; color: var(--text-main);
-  font-size: 0.85rem; outline: none; transition: all 0.2s;
+  width: 100%; padding: 0.7rem 0.9rem; background: rgba(7, 6, 17, 0.7);
+  border: 1px solid var(--border); border-radius: 12px; color: var(--text-main);
+  font-size: 0.88rem; outline: none; transition: all 0.2s;
 }
-input:focus, textarea:focus, select:focus { border-color: var(--purple-accent); box-shadow: 0 0 12px rgba(168, 85, 247, 0.25); }
+input:focus, textarea:focus, select:focus { border-color: var(--purple-accent); box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
 textarea { resize: vertical; min-height: 75px; }
 
 .form-actions { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; }
 
 .btn {
-  padding: 0.7rem 1.6rem; background: linear-gradient(135deg, var(--purple-glow), var(--purple-accent));
-  color: #fff; border: none; border-radius: 10px; cursor: pointer; font-size: 0.88rem; font-weight: 700;
-  transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
+  padding: 0.75rem 1.8rem; background: linear-gradient(135deg, var(--purple-glow), var(--purple-accent));
+  color: #fff; border: none; border-radius: 12px; cursor: pointer; font-size: 0.9rem; font-weight: 800;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5); background: linear-gradient(135deg, var(--purple-accent), var(--pink-accent)); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6); background: linear-gradient(135deg, var(--purple-accent), var(--pink-accent)); }
 .btn:disabled { background: var(--bg-surface-2); color: var(--text-dim); box-shadow: none; cursor: not-allowed; transform: none; }
 .btn-outline { background: transparent; border: 1px solid var(--border-highlight); color: var(--purple-bright); box-shadow: none; }
 .btn-outline:hover { background: rgba(139, 92, 246, 0.12); color: #fff; }
@@ -239,182 +248,182 @@ textarea { resize: vertical; min-height: 75px; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple-glow), var(--pink-accent), var(--cyan-accent)); width: 0%; transition: width 0.4s ease; border-radius: 10px; }
 
 /* ---------------------------------------------------- */
-/* SINGLE DEDICATED FULL-PAGE AGENT VIEW & NAVIGATION */
+/* STANDALONE SINGLE-AGENT PAGE CONTAINER & NAVIGATOR */
 /* ---------------------------------------------------- */
 
-.page-workspace-container { display: flex; flex-direction: column; gap: 1.25rem; }
+.standalone-agent-workspace { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0.5rem; }
 
-/* Top Page Navigation Header */
-.page-nav-bar {
-  background: var(--bg-surface); border: var(--glass-border); border-radius: 14px;
-  padding: 0.75rem 1.25rem; display: flex; align-items: center; justify-content: space-between;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+/* FLOATING LOOP NAVIGATOR BAR */
+.loop-nav-bar {
+  background: var(--glass-bg); backdrop-filter: blur(16px);
+  border: var(--glass-border); border-radius: 16px; padding: 0.75rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3); position: sticky; top: 75px; z-index: 90;
 }
 
-.page-indicator-wrap { display: flex; align-items: center; gap: 0.85rem; }
-.page-badge {
-  padding: 0.35rem 0.85rem; background: linear-gradient(135deg, var(--purple-accent), var(--purple-dark));
-  color: #fff; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+.loop-page-badge {
+  padding: 0.4rem 0.95rem; background: linear-gradient(135deg, var(--purple-accent), var(--purple-dark));
+  color: #fff; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 
-.page-title-text { font-size: 1.1rem; font-weight: 800; color: #fff; }
+.loop-nav-title { font-size: 1.15rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 0.5rem; }
 
-.page-nav-buttons { display: flex; align-items: center; gap: 0.6rem; }
-.page-btn {
-  padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.8rem; font-weight: 700;
-  background: rgba(139, 92, 246, 0.15); border: 1px solid var(--border); color: var(--purple-bright);
-  cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.4rem;
+.loop-nav-controls { display: flex; align-items: center; gap: 0.6rem; }
+.loop-btn {
+  padding: 0.55rem 1.15rem; border-radius: 12px; font-size: 0.82rem; font-weight: 700;
+  background: rgba(139, 92, 246, 0.18); border: 1px solid var(--border-highlight); color: var(--purple-bright);
+  cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.4rem;
 }
-.page-btn:hover { background: var(--purple-accent); color: #fff; border-color: transparent; transform: translateY(-1px); }
-.page-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; background: rgba(255,255,255,0.05); color: var(--text-dim); }
+.loop-btn:hover { background: var(--purple-accent); color: #fff; border-color: transparent; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4); }
 
-/* Quick Select Dropdown Pills */
-.page-selector-pills {
-  display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.25rem 0;
-}
-.page-pill {
-  padding: 0.4rem 0.85rem; border-radius: 10px; font-size: 0.75rem; font-weight: 600;
+/* Quick Agent Selector Pills */
+.agent-pill-bar { display: flex; gap: 0.45rem; overflow-x: auto; padding-bottom: 2px; }
+.agent-pill {
+  padding: 0.45rem 0.95rem; border-radius: 12px; font-size: 0.78rem; font-weight: 600;
   color: var(--text-muted); background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border);
-  cursor: pointer; transition: all 0.2s ease; white-space: nowrap; display: flex; align-items: center; gap: 0.4rem;
+  cursor: pointer; transition: all 0.2s ease; white-space: nowrap; display: flex; align-items: center; gap: 0.45rem;
 }
-.page-pill:hover { border-color: var(--purple-accent); color: #fff; }
-.page-pill.active {
-  background: rgba(168, 85, 247, 0.25); border-color: var(--purple-accent); color: #fff; font-weight: 700;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
-}
-
-/* SINGLE FOCUSED PAGE CONTAINER */
-.single-page-card {
-  background: var(--bg-card); backdrop-filter: blur(16px); border: var(--glass-border);
-  border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-purple);
-  min-height: 520px; display: flex; flex-direction: column;
-  animation: slidePageIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+.agent-pill:hover { border-color: var(--purple-accent); color: #fff; transform: translateY(-1px); }
+.agent-pill.active {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.15));
+  border-color: var(--purple-accent); color: #fff; font-weight: 700; box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
 }
 
-@keyframes slidePageIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.99); }
+/* STANDALONE FULL PAGE CARD */
+.standalone-page-card {
+  background: var(--bg-card); backdrop-filter: blur(20px); border: var(--glass-border);
+  border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-purple);
+  min-height: 540px; display: flex; flex-direction: column;
+  animation: pageSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageSlideIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.single-page-header {
-  padding: 1.25rem 1.75rem; background: rgba(22, 18, 45, 0.95); border-bottom: var(--glass-border);
+.standalone-card-header {
+  padding: 1.5rem 2rem; background: rgba(22, 18, 45, 0.95); border-bottom: var(--glass-border);
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
 }
 
-.single-page-title-group { display: flex; align-items: center; gap: 1rem; }
-.single-page-icon {
-  width: 46px; height: 46px; border-radius: 14px; background: rgba(168, 85, 247, 0.15);
-  border: 1px solid var(--border-highlight); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+.standalone-card-title { display: flex; align-items: center; gap: 1rem; }
+.standalone-card-icon {
+  width: 50px; height: 50px; border-radius: 16px; background: rgba(168, 85, 247, 0.15);
+  border: 1px solid var(--border-highlight); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
-.single-page-main-name { font-size: 1.2rem; font-weight: 800; color: #fff; }
-.single-page-sub-desc { font-size: 0.8rem; color: var(--text-muted); }
+.standalone-card-name { font-size: 1.3rem; font-weight: 800; color: #fff; }
+.standalone-card-desc { font-size: 0.84rem; color: var(--text-muted); margin-top: 2px; }
 
-.single-page-body { padding: 2rem; flex: 1; overflow-y: auto; font-size: 0.9rem; line-height: 1.75; }
+.standalone-card-body { padding: 2.25rem; flex: 1; overflow-y: auto; font-size: 0.92rem; line-height: 1.8; }
 
-/* EXECUTIVE OVERVIEW SINGLE PAGE */
-.overview-page-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+/* EXECUTIVE OVERVIEW STANDALONE PAGE */
+.overview-page-layout { display: flex; flex-direction: column; gap: 1.75rem; }
 
-.hero-stats-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.85rem; }
+.hero-stats-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
 .hero-stat-card {
-  background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 14px;
-  padding: 1.1rem; text-align: center; display: flex; flex-direction: column; justify-content: center;
+  background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 16px;
+  padding: 1.15rem; text-align: center; display: flex; flex-direction: column; justify-content: center;
+  transition: transform 0.2s ease;
 }
-.hero-stat-val { font-size: 1.6rem; font-weight: 800; color: #fff; }
-.hero-stat-lbl { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; font-weight: 700; }
+.hero-stat-card:hover { transform: translateY(-3px); border-color: var(--purple-accent); }
+.hero-stat-val { font-size: 1.65rem; font-weight: 800; color: #fff; }
+.hero-stat-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; font-weight: 700; }
 
 .hero-verdict-banner {
-  padding: 1rem 1.5rem; border-radius: 14px; text-align: center; font-weight: 800; font-size: 1rem;
+  padding: 1.1rem 1.6rem; border-radius: 16px; text-align: center; font-weight: 800; font-size: 1.05rem;
   background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
-  border: 1px solid rgba(16, 185, 129, 0.4); color: var(--emerald-accent);
+  border: 1px solid rgba(16, 185, 129, 0.4); color: var(--emerald-accent); box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
 }
 
-.overview-agent-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.overview-agent-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
 .agent-tile {
-  background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 14px;
-  padding: 1.25rem; cursor: pointer; transition: all 0.25s ease; display: flex; flex-direction: column; gap: 0.6rem;
+  background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 16px;
+  padding: 1.35rem; cursor: pointer; transition: all 0.25s ease; display: flex; flex-direction: column; gap: 0.6rem;
 }
-.agent-tile:hover { border-color: var(--purple-accent); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.2); }
+.agent-tile:hover { border-color: var(--purple-accent); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(168, 85, 247, 0.25); }
 .agent-tile-header { display: flex; align-items: center; justify-content: space-between; }
-.agent-tile-title { font-size: 0.92rem; font-weight: 800; color: var(--purple-bright); display: flex; align-items: center; gap: 0.5rem; }
+.agent-tile-title { font-size: 0.98rem; font-weight: 800; color: var(--purple-bright); display: flex; align-items: center; gap: 0.5rem; }
 
-/* VISUAL WIDGET FORMATTERS */
+/* VISUAL FORMATTERS */
 .validator-container { display: flex; flex-direction: column; gap: 1.5rem; }
 .scores-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.score-box { background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; text-align: center; }
-.score-value { font-size: 2rem; font-weight: 800; color: var(--purple-bright); }
+.score-box { background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; text-align: center; }
+.score-value { font-size: 2.2rem; font-weight: 800; color: var(--purple-bright); }
 .score-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; font-weight: 700; }
 .tag-section { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-.tag-col-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.6rem; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-.badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 5px 12px; border-radius: 14px; font-size: 0.8rem; font-weight: 600; }
-.badge-red { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); padding: 5px 12px; border-radius: 14px; font-size: 0.8rem; font-weight: 600; }
+.tag-col-title { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.6rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 6px 14px; border-radius: 14px; font-size: 0.82rem; font-weight: 600; }
+.badge-red { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); padding: 6px 14px; border-radius: 14px; font-size: 0.82rem; font-weight: 600; }
 
 .market-widget { display: flex; flex-direction: column; gap: 1.5rem; }
-.chart-box { background: rgba(7, 6, 17, 0.7); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; height: 350px; position: relative; }
+.chart-box { background: rgba(7, 6, 17, 0.7); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; height: 360px; position: relative; }
 
 .bmc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.bmc-box { background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem; min-height: 130px; }
-.bmc-title { font-size: 0.8rem; font-weight: 800; color: var(--purple-bright); margin-bottom: 0.6rem; text-transform: uppercase; }
-.bmc-items { font-size: 0.82rem; color: var(--text-muted); list-style: none; }
+.bmc-box { background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 16px; padding: 1.15rem; min-height: 135px; }
+.bmc-title { font-size: 0.82rem; font-weight: 800; color: var(--purple-bright); margin-bottom: 0.6rem; text-transform: uppercase; }
+.bmc-items { font-size: 0.85rem; color: var(--text-muted); list-style: none; }
 .bmc-items li { margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
 .bmc-items li::before { content: "•"; color: var(--purple-accent); font-weight: bold; }
 
 .tech-pipeline { display: flex; flex-direction: column; gap: 1rem; }
-.tech-node { background: rgba(7, 6, 17, 0.7); border: 1px solid var(--border); border-left: 4px solid var(--purple-accent); border-radius: 14px; padding: 1.15rem 1.4rem; display: flex; align-items: center; justify-content: space-between; }
-.tech-role { font-size: 0.78rem; font-weight: 700; color: var(--purple-bright); text-transform: uppercase; }
-.tech-stack-name { font-size: 0.95rem; color: #fff; font-weight: 600; }
+.tech-node { background: rgba(7, 6, 17, 0.7); border: 1px solid var(--border); border-left: 4px solid var(--purple-accent); border-radius: 16px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+.tech-role { font-size: 0.8rem; font-weight: 700; color: var(--purple-bright); text-transform: uppercase; }
+.tech-stack-name { font-size: 0.98rem; color: #fff; font-weight: 600; }
 .tech-tags { display: flex; gap: 0.4rem; }
-.tech-tag { font-size: 0.72rem; background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 6px; color: var(--text-muted); }
+.tech-tag { font-size: 0.75rem; background: rgba(255,255,255,0.08); padding: 3px 9px; border-radius: 6px; color: var(--text-muted); }
 
 .mvp-timeline { display: flex; flex-direction: column; gap: 1rem; }
-.sprint-card { background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 14px; padding: 1.15rem 1.4rem; }
+.sprint-card { background: rgba(7, 6, 17, 0.6); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.5rem; }
 .sprint-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
-.sprint-title { font-size: 0.92rem; font-weight: 700; color: var(--purple-bright); }
-.sprint-badge { font-size: 0.72rem; padding: 3px 10px; background: rgba(168,85,247,0.2); color: var(--purple-bright); border-radius: 10px; }
-.task-list { display: flex; flex-direction: column; gap: 0.55rem; }
-.task-item { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.65rem; }
-.task-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--purple-accent); cursor: pointer; }
+.sprint-title { font-size: 0.95rem; font-weight: 700; color: var(--purple-bright); }
+.sprint-badge { font-size: 0.75rem; padding: 3px 10px; background: rgba(168,85,247,0.2); color: var(--purple-bright); border-radius: 10px; }
+.task-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.task-item { font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.7rem; }
+.task-item input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--purple-accent); cursor: pointer; }
 
 .pitch-slider { display: flex; flex-direction: column; gap: 1.25rem; }
 .slide-card {
   background: linear-gradient(135deg, rgba(22, 18, 45, 0.95), rgba(15, 12, 32, 0.98));
-  border: 1px solid var(--border-highlight); border-radius: 16px; padding: 1.75rem; min-height: 220px;
+  border: 1px solid var(--border-highlight); border-radius: 18px; padding: 1.85rem; min-height: 230px;
   display: flex; flex-direction: column; justify-content: space-between;
 }
-.slide-num { font-size: 0.72rem; font-weight: 700; color: var(--purple-bright); text-transform: uppercase; letter-spacing: 1px; }
-.slide-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0.4rem 0 0.75rem 0; }
-.slide-body { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+.slide-num { font-size: 0.75rem; font-weight: 700; color: var(--purple-bright); text-transform: uppercase; letter-spacing: 1px; }
+.slide-title { font-size: 1.3rem; font-weight: 800; color: #fff; margin: 0.4rem 0 0.75rem 0; }
+.slide-body { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; }
 
 .slide-thumbnails { display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 4px; }
 .slide-thumb {
-  flex: 1; min-width: 120px; padding: 0.65rem; background: rgba(7, 6, 17, 0.6);
-  border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s;
-  font-size: 0.75rem; color: var(--text-muted); text-align: center;
+  flex: 1; min-width: 120px; padding: 0.7rem; background: rgba(7, 6, 17, 0.6);
+  border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s;
+  font-size: 0.78rem; color: var(--text-muted); text-align: center;
 }
 .slide-thumb:hover { border-color: var(--purple-accent); color: var(--purple-bright); }
 .slide-thumb.active { background: rgba(168, 85, 247, 0.2); border-color: var(--purple-accent); color: #fff; font-weight: 700; }
 
 .comp-table-wrap { overflow-x: auto; }
-.comp-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.comp-table th, .comp-table td { padding: 0.85rem 1.15rem; text-align: left; border-bottom: 1px solid var(--border); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.comp-table th, .comp-table td { padding: 0.9rem 1.25rem; text-align: left; border-bottom: 1px solid var(--border); }
 .comp-table th { background: rgba(139, 92, 246, 0.12); color: var(--purple-bright); font-weight: 700; }
 .comp-table td { color: var(--text-muted); }
 .highlight-cell { color: var(--emerald-accent) !important; font-weight: 700; }
 
-.swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.swot-box { border-radius: 14px; padding: 1.25rem; min-height: 150px; display: flex; flex-direction: column; gap: 0.5rem; }
+.swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.swot-box { border-radius: 16px; padding: 1.35rem; min-height: 160px; display: flex; flex-direction: column; gap: 0.5rem; }
 .swot-s { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); }
 .swot-w { background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.25); }
 .swot-o { background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25); }
 .swot-t { background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); }
-.swot-title { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+.swot-title { font-size: 0.88rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
 .swot-s .swot-title { color: var(--emerald-accent); }
 .swot-w .swot-title { color: var(--rose-accent); }
 .swot-o .swot-title { color: var(--cyan-accent); }
 .swot-t .swot-title { color: var(--amber-accent); }
-.swot-list { font-size: 0.85rem; color: var(--text-main); list-style-position: inside; }
+.swot-list { font-size: 0.88rem; color: var(--text-main); list-style-position: inside; }
 .swot-list li { margin-bottom: 6px; }
 
 /* Chat Panel */
@@ -447,6 +456,22 @@ textarea { resize: vertical; min-height: 75px; }
   animation: fadeIn 0.3s ease;
 }
 
+/* MASTER PRINT / PDF STYLES */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  header, .sidebar, .main-nav, .loop-nav-bar, .agent-pill-bar, .ambient-orb, .form-card, .toast-msg { display: none !important; }
+  .app-container { height: auto !important; overflow: visible !important; }
+  .panel { display: block !important; overflow: visible !important; }
+  .standalone-agent-workspace { display: block !important; }
+  .standalone-page-card { box-shadow: none !important; border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; }
+  .standalone-card-header { background: #f3f4f6 !important; border-bottom: 1px solid #ccc !important; }
+  .standalone-card-name { color: #000 !important; }
+  .standalone-card-desc { color: #555 !important; }
+  .hero-stat-card, .score-box, .bmc-box, .sprint-card, .swot-box, .tech-node { background: #f9fafb !important; border: 1px solid #ddd !important; color: #000 !important; }
+  .hero-stat-val, .score-value, .tech-stack-name, .sprint-title, .slide-title { color: #000 !important; }
+  .print-page-break { page-break-before: always; margin-top: 2rem; }
+}
+
 @media(max-width: 992px) {
   .hero-stats-grid { grid-template-columns: repeat(3, 1fr); }
   .form-grid { grid-template-columns: 1fr 1fr; }
@@ -475,12 +500,15 @@ textarea { resize: vertical; min-height: 75px; }
     <div>
       <div class="logo-text">Startup Incubator OS</div>
     </div>
-    <span class="logo-tag">v4.0 Single Page Mode</span>
+    <span class="logo-tag">v4.8 Moncy Pro</span>
   </div>
   
-  <div class="header-status">
-    <div class="status-dot"></div>
-    <span>Engine Live · Groq Llama-3.3</span>
+  <div class="header-actions">
+    <button class="export-master-btn" onclick="exportFullPDFMasterReport()">📄 Export Full PDF Master Report</button>
+    <div class="header-status">
+      <div class="status-dot"></div>
+      <span>Engine Live · Groq Llama-3.3</span>
+    </div>
   </div>
 </header>
 
@@ -578,49 +606,52 @@ textarea { resize: vertical; min-height: 75px; }
         </div>
       </div>
 
-      <!-- SINGLE DEDICATED PAGE WORKSPACE FOR AGENTS -->
-      <div id="pageWorkspace" class="page-workspace-container" style="display:none">
+      <!-- MONCY-STYLE STANDALONE SINGLE-PAGE AGENT CONTAINER -->
+      <div id="standaloneWorkspace" class="standalone-agent-workspace" style="display:none">
         
-        <!-- TOP PAGE NAVIGATION BAR -->
-        <div class="page-nav-bar">
-          <div class="page-indicator-wrap">
-            <div class="page-badge" id="pageNumberBadge">PAGE 1 OF 9</div>
-            <div class="page-title-text" id="pageTitleText">Executive Overview</div>
+        <!-- FLOATING AGENT LOOP NAVIGATOR BAR -->
+        <div class="loop-nav-bar">
+          <div class="loop-nav-title">
+            <span class="loop-page-badge" id="loopPageBadge">PAGE 1 OF 9</span>
+            <span id="loopTitleText">Executive Overview</span>
           </div>
 
-          <div class="page-nav-buttons">
-            <button class="page-btn" id="prevPageBtn" onclick="navigatePage(-1)">← Previous Agent</button>
-            <button class="page-btn" id="nextPageBtn" onclick="navigatePage(1)">Next Agent →</button>
+          <div class="loop-nav-controls">
+            <button class="loop-btn" id="prevLoopBtn" onclick="navigateLoop(-1)">← Prev Agent</button>
+            <button class="loop-btn" id="nextLoopBtn" onclick="navigateLoop(1)">Next Agent →</button>
           </div>
         </div>
 
-        <!-- QUICK PAGE SELECTOR PILLS -->
-        <div class="page-selector-pills" id="pageSelectorPills">
-          <!-- Dynamically populated page pills -->
+        <!-- QUICK AGENT PILL SELECTOR -->
+        <div class="agent-pill-bar" id="agentPillBar">
+          <!-- Dynamically populated agent selector pills -->
         </div>
 
-        <!-- SINGLE FOCUSED PAGE CARD -->
-        <div class="single-page-card" id="singlePageCard">
-          <div class="single-page-header">
-            <div class="single-page-title-group">
-              <div class="single-page-icon" id="singlePageIcon">📊</div>
+        <!-- STANDALONE FULL PAGE CARD -->
+        <div class="standalone-page-card" id="standaloneCard">
+          <div class="standalone-card-header">
+            <div class="standalone-card-title">
+              <div class="standalone-card-icon" id="cardIcon">📊</div>
               <div>
-                <div class="single-page-main-name" id="singlePageName">Executive Overview</div>
-                <div class="single-page-sub-desc" id="singlePageDesc">High-level summary metrics, scorecards, and key analysis highlights.</div>
+                <div class="standalone-card-name" id="cardName">Executive Overview</div>
+                <div class="standalone-card-desc" id="cardDesc">High-level summary metrics, scorecards, and key analysis highlights.</div>
               </div>
             </div>
 
             <div style="display:flex; align-items:center; gap:0.75rem">
-              <button class="btn btn-outline" style="padding:0.4rem 0.85rem; font-size:0.75rem" onclick="jumpToChatCurrentPage()">💬 Ask Agent in Chat</button>
+              <button class="btn btn-outline" style="padding:0.4rem 0.85rem; font-size:0.75rem" onclick="jumpToChatCurrentAgent()">💬 Ask Agent in Chat</button>
             </div>
           </div>
 
-          <div class="single-page-body" id="singlePageBody">
-            <!-- Focused page content rendered here -->
+          <div class="standalone-card-body" id="cardBody">
+            <!-- Dedicated agent page content rendered here -->
           </div>
         </div>
 
       </div>
+
+      <!-- HIDDEN CONTAINER FOR FULL PDF MASTER PRINT REPORT -->
+      <div id="masterPrintContainer" style="display:none"></div>
     </div>
 
     <!-- Chat Panel -->
@@ -664,7 +695,7 @@ textarea { resize: vertical; min-height: 75px; }
 <script>
 const BACKEND_URL = "https://agents-backend-1.onrender.com";
 
-const PAGE_KEYS = [
+const LOOP_KEYS = [
   'overview',
   'idea_validator',
   'market_research',
@@ -688,40 +719,40 @@ const AGENT_CONFIG = {
 };
 
 let agentOutputs = {};
-let currentPageIndex = 0;
+let currentLoopIndex = 0;
 let chartInstances = {};
 let activeSlideIndex = {};
 
 function buildAgentList() {
   const sidebar = document.getElementById('agentList');
   sidebar.innerHTML = Object.entries(AGENT_CONFIG).map(([key, cfg]) => `
-    <div class="agent-item" id="sidebar_${key}" onclick="goToAgentPageKey('${key}')">
+    <div class="agent-item" id="sidebar_${key}" onclick="goToAgentByKey('${key}')">
       <span class="agent-icon">${cfg.icon}</span>
       <span class="agent-name">${cfg.label}</span>
       <span class="agent-badge" id="badge_${key}">idle</span>
     </div>
   `).join('');
 
-  buildPageSelectorPills();
+  buildAgentPillBar();
 }
 
-function buildPageSelectorPills() {
-  const container = document.getElementById('pageSelectorPills');
+function buildAgentPillBar() {
+  const bar = document.getElementById('agentPillBar');
   let html = `
-    <div class="page-pill active" id="pagepill_overview" onclick="goToPageIndex(0)">
+    <div class="agent-pill active" id="pill_overview" onclick="goToLoopIndex(0)">
       <span>📊</span> Overview
     </div>
   `;
 
   Object.entries(AGENT_CONFIG).forEach(([key, cfg], idx) => {
     html += `
-      <div class="page-pill" id="pagepill_${key}" onclick="goToPageIndex(${idx + 1})">
+      <div class="agent-pill" id="pill_${key}" onclick="goToLoopIndex(${idx + 1})">
         <span>${cfg.icon}</span> ${cfg.label}
       </div>
     `;
   });
 
-  container.innerHTML = html;
+  bar.innerHTML = html;
 }
 
 buildAgentList();
@@ -776,74 +807,69 @@ function loadPreset(type) {
 }
 
 // ----------------------------------------------------
-// SINGLE PAGE MULTI-AGENT NAVIGATION ENGINE
+// MONCY-STYLE LOOP NAVIGATION & STANDALONE PAGE RENDERER
 // ----------------------------------------------------
 
-function navigatePage(direction) {
-  const newIndex = currentPageIndex + direction;
-  if (newIndex >= 0 && newIndex < PAGE_KEYS.length) {
-    goToPageIndex(newIndex);
-  }
+function navigateLoop(dir) {
+  const count = LOOP_KEYS.length;
+  const newIndex = (currentLoopIndex + dir + count) % count;
+  goToLoopIndex(newIndex);
 }
 
-function goToAgentPageKey(key) {
-  const idx = PAGE_KEYS.indexOf(key);
-  if (idx !== -1) goToPageIndex(idx);
+function goToAgentByKey(key) {
+  const idx = LOOP_KEYS.indexOf(key);
+  if (idx !== -1) goToLoopIndex(idx);
 }
 
-function goToPageIndex(index) {
-  currentPageIndex = index;
+function goToLoopIndex(index) {
+  currentLoopIndex = index;
   switchTab('analyze', document.querySelectorAll('.main-tab')[0]);
 
-  const currentKey = PAGE_KEYS[index];
+  const currentKey = LOOP_KEYS[index];
 
-  // Update Page Navigation Header
-  document.getElementById('pageNumberBadge').textContent = `PAGE ${index + 1} OF ${PAGE_KEYS.length}`;
-  
-  // Update Prev/Next Button states
-  document.getElementById('prevPageBtn').disabled = (index === 0);
-  document.getElementById('nextPageBtn').disabled = (index === PAGE_KEYS.length - 1);
+  // Update Loop Badge & Header
+  document.getElementById('loopPageBadge').textContent = `AGENT ${index + 1} OF ${LOOP_KEYS.length}`;
 
-  // Update Page Pills
-  document.querySelectorAll('.page-pill').forEach(p => p.classList.remove('active'));
-  document.getElementById('pagepill_' + currentKey)?.classList.add('active');
+  // Update Pill States
+  document.querySelectorAll('.agent-pill').forEach(p => p.classList.remove('active'));
+  document.getElementById('pill_' + currentKey)?.classList.add('active');
 
-  // Update Sidebar active state
+  // Update Sidebar
   document.querySelectorAll('.agent-item').forEach(e => e.classList.remove('active'));
   if (currentKey !== 'overview') {
     document.getElementById('sidebar_' + currentKey)?.classList.add('active');
   }
 
-  // Update Page Header Info
-  const iconEl = document.getElementById('singlePageIcon');
-  const nameEl = document.getElementById('singlePageName');
-  const descEl = document.getElementById('singlePageDesc');
-  const pageTitleText = document.getElementById('pageTitleText');
+  // Header Details
+  const iconEl = document.getElementById('cardIcon');
+  const nameEl = document.getElementById('cardName');
+  const descEl = document.getElementById('cardDesc');
+  const loopTitleText = document.getElementById('loopTitleText');
 
   if (currentKey === 'overview') {
     iconEl.textContent = '📊';
     nameEl.textContent = 'Executive Overview';
-    pageTitleText.textContent = 'Executive Overview';
-    descEl.textContent = 'High-level summary scorecards, market sizing, and key startup analysis metrics.';
+    loopTitleText.textContent = 'Executive Overview';
+    descEl.textContent = 'High-level summary metrics, scorecards, and key analysis highlights.';
   } else {
     const cfg = AGENT_CONFIG[currentKey];
     iconEl.textContent = cfg.icon;
     nameEl.textContent = cfg.label;
-    pageTitleText.textContent = cfg.label;
+    loopTitleText.textContent = cfg.label;
     descEl.textContent = cfg.desc;
   }
 
-  // Trigger smooth card slide animation
-  const card = document.getElementById('singlePageCard');
+  // Smooth slide transition
+  const card = document.getElementById('standaloneCard');
   card.style.animation = 'none';
   card.offsetHeight; // trigger reflow
-  card.style.animation = 'slidePageIn 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
+  card.style.animation = 'pageSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
 
-  renderSinglePageBody(currentKey);
+  renderStandalonePageContent(currentKey);
 }
 
-function renderSinglePageBody(key) {
-  const body = document.getElementById('singlePageBody');
+function renderStandalonePageContent(key) {
+  const body = document.getElementById('cardBody');
   const rawText = agentOutputs[key] || '';
 
   if (key === 'overview') {
@@ -851,12 +877,37 @@ function renderSinglePageBody(key) {
     return;
   }
 
-  body.innerHTML = renderSingleAgentFullPage(key, rawText);
+  const visualHtml = renderVisualContent(key, rawText);
+  const formattedReport = formatSimpleMarkdown(rawText);
+
+  body.innerHTML = `
+    <div style="display:flex; flex-direction:column; gap:2rem">
+      <!-- Visual Interactive Dashboard Container -->
+      <div>
+        <div style="font-size:0.85rem; font-weight:800; color:var(--purple-bright); text-transform:uppercase; margin-bottom:0.85rem; letter-spacing:0.5px">
+          📊 Visual Dashboard Breakdown
+        </div>
+        ${visualHtml}
+      </div>
+
+      <hr style="border:none; border-top:1px solid var(--border)"/>
+
+      <!-- Full Detailed Comprehensive Agent Report -->
+      <div>
+        <div style="font-size:0.85rem; font-weight:800; color:var(--purple-bright); text-transform:uppercase; margin-bottom:0.85rem; letter-spacing:0.5px">
+          📄 Comprehensive Full Agent Analysis Report
+        </div>
+        <div style="white-space:pre-wrap; line-height:1.8; font-size:0.92rem; color:var(--text-main)">
+          ${formattedReport || 'Agent analysis generating...'}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderOverviewPage() {
   return `
-    <div class="overview-page-grid">
+    <div class="overview-page-layout">
       <div class="hero-verdict-banner">
         🚀 HIGH POTENTIAL CONCEPT - STRONG MARKET FIT & DEFLECTION MOAT
       </div>
@@ -888,21 +939,21 @@ function renderOverviewPage() {
         </div>
       </div>
 
-      <div style="font-size:0.85rem; font-weight:800; color:var(--purple-bright); text-transform:uppercase; margin-top:0.5rem">
+      <div style="font-size:0.88rem; font-weight:800; color:var(--purple-bright); text-transform:uppercase; margin-top:0.5rem">
         💡 Dedicated Agent Workspace Pages (Click to Navigate)
       </div>
 
       <div class="overview-agent-tiles">
         ${Object.entries(AGENT_CONFIG).map(([k, cfg], i) => `
-          <div class="agent-tile" onclick="goToPageIndex(${i + 1})">
+          <div class="agent-tile" onclick="goToLoopIndex(${i + 1})">
             <div class="agent-tile-header">
               <div class="agent-tile-title">
                 <span>${cfg.icon}</span>
                 <span>${cfg.label}</span>
               </div>
-              <span style="font-size:0.75rem; color:var(--purple-bright); font-weight:700">Open Page ${i+2} →</span>
+              <span style="font-size:0.78rem; color:var(--purple-bright); font-weight:700">Open Page ${i+2} →</span>
             </div>
-            <div style="font-size:0.8rem; color:var(--text-muted)">${cfg.desc}</div>
+            <div style="font-size:0.82rem; color:var(--text-muted)">${cfg.desc}</div>
           </div>
         `).join('')}
       </div>
@@ -910,37 +961,97 @@ function renderOverviewPage() {
   `;
 }
 
-function renderSingleAgentFullPage(key, text) {
-  const visualHtml = renderVisualContent(key, text);
-  const formattedReport = formatSimpleMarkdown(text);
+// ----------------------------------------------------
+// FULL MASTER PDF EXPORT FUNCTION
+// ----------------------------------------------------
 
-  return `
-    <div style="display:flex; flex-direction:column; gap:1.75rem">
-      <!-- Top Visual Dashboard Widget -->
-      <div>
-        <div style="font-size:0.8rem; font-weight:800; color:var(--purple-bright); text-transform:uppercase; margin-bottom:0.75rem">
-          📊 Visual Dashboard Breakdown
+function exportFullPDFMasterReport() {
+  const name = document.getElementById('f_name').value || "Startup";
+  const industry = document.getElementById('f_industry').value || "Tech";
+  const audience = document.getElementById('f_audience').value || "Global Target Users";
+  const country = document.getElementById('f_country').value || "Global";
+  const problem = document.getElementById('f_problem').value || "";
+
+  let printHtml = `
+    <div style="padding: 2rem; font-family:'Plus Jakarta Sans',sans-serif; color:#000; background:#fff">
+      <div style="border-bottom: 3px solid #8b5cf6; padding-bottom: 1.5rem; margin-bottom: 2rem">
+        <h1 style="font-size: 2.2rem; font-weight: 800; color: #4c1d95; margin-bottom: 0.5rem">🚀 ${escapeHtml(name)} - Full Startup Intelligence Master Report</h1>
+        <div style="font-size: 0.95rem; color: #4b5563">
+          <strong>Industry:</strong> ${escapeHtml(industry)} | 
+          <strong>Target Audience:</strong> ${escapeHtml(audience)} | 
+          <strong>Region:</strong> ${escapeHtml(country)}
         </div>
-        ${visualHtml}
+        <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem">
+          <strong>Problem & Solution:</strong> ${escapeHtml(problem)}
+        </div>
       </div>
 
-      <hr style="border:none; border-top:1px solid var(--border)"/>
-
-      <!-- Comprehensive Full Report -->
-      <div>
-        <div style="font-size:0.8rem; font-weight:800; color:var(--purple-bright); text-transform:uppercase; margin-bottom:0.75rem">
-          📄 Complete Agent Analysis & Findings
-        </div>
-        <div style="white-space:pre-wrap; line-height:1.75; font-size:0.88rem">
-          ${formattedReport || 'Agent analysis generating or ready for review...'}
+      <!-- Executive Overview Summary -->
+      <div style="background: #f3f4f6; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem">
+        <h2 style="color: #6d28d9; font-size: 1.3rem; margin-bottom: 1rem">📊 Executive Overview & Key Metrics</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center">
+          <div style="background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #7c3aed">88/100</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase">Viability Score</div>
+          </div>
+          <div style="background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #0284c7">84/100</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase">Market Fit</div>
+          </div>
+          <div style="background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #db2777">90/100</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase">Uniqueness</div>
+          </div>
         </div>
       </div>
-    </div>
   `;
+
+  // Append full comprehensive details of each agent
+  Object.entries(AGENT_CONFIG).forEach(([key, cfg], index) => {
+    const rawText = agentOutputs[key] || "Full data generated.";
+    const formattedText = formatSimpleMarkdown(rawText);
+
+    printHtml += `
+      <div class="print-page-break" style="margin-bottom: 2.5rem; padding-top: 1rem">
+        <h2 style="color: #6d28d9; font-size: 1.4rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem">
+          ${cfg.icon} Section ${index + 1}: ${cfg.label}
+        </h2>
+        <div style="font-size: 0.9rem; color: #374151; line-height: 1.75; white-space: pre-wrap">
+          ${formattedText}
+        </div>
+      </div>
+    `;
+  });
+
+  printHtml += `</div>`;
+
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>${escapeHtml(name)} - Master Report PDF</title>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+      <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; background: #fff; color: #000; }
+        .print-page-break { page-break-inside: avoid; }
+      </style>
+    </head>
+    <body>
+      ${printHtml}
+      <script>
+        setTimeout(() => { window.print(); }, 500);
+      </script>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+
+  showToast('📄 PDF Master Report generated! Printing window opened.');
 }
 
-function jumpToChatCurrentPage() {
-  const currentKey = PAGE_KEYS[currentPageIndex];
+function jumpToChatCurrentAgent() {
+  const currentKey = LOOP_KEYS[currentLoopIndex];
   if (currentKey === 'overview') return;
   const agentCfg = AGENT_CONFIG[currentKey];
 
@@ -960,7 +1071,7 @@ function showToast(msg) {
   toast.className = 'toast-msg';
   toast.textContent = msg;
   document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 2500);
+  setTimeout(() => toast.remove(), 3000);
 }
 
 // ----------------------------------------------------
@@ -1005,6 +1116,7 @@ function renderIdeaValidatorVisual(text) {
             <span class="badge-green">High Demand Problem</span>
             <span class="badge-green">Recurring Revenue Potential</span>
             <span class="badge-green">Scalable AI Engine</span>
+            <span class="badge-green">Low Marginal Cost</span>
           </div>
         </div>
         <div>
@@ -1012,6 +1124,7 @@ function renderIdeaValidatorVisual(text) {
           <div class="tag-list">
             <span class="badge-red">ATS Algorithm Shifts</span>
             <span class="badge-red">Customer Acquisition Cost</span>
+            <span class="badge-red">Initial Brand Authority</span>
           </div>
         </div>
       </div>
@@ -1052,8 +1165,8 @@ function renderMarketResearchVisual(text) {
 
   return `
     <div class="market-widget">
-      <div style="font-size:0.8rem; font-weight:700; color:var(--purple-bright); text-transform:uppercase; display:flex; justify-content:space-between">
-        <span>📈 Interactive 5-Year CAGR Market Trajectory</span>
+      <div style="font-size:0.85rem; font-weight:700; color:var(--purple-bright); text-transform:uppercase; display:flex; justify-content:space-between">
+        <span>📈 Interactive 5-Year CAGR Market Growth Trajectory</span>
         <span style="color:var(--emerald-accent)">+18.2% CAGR</span>
       </div>
       <div class="chart-box">
@@ -1066,12 +1179,12 @@ function renderMarketResearchVisual(text) {
 function renderBusinessModelVisual(text) {
   return `
     <div class="bmc-grid">
-      <div class="bmc-box"><div class="bmc-title">🤝 Key Partners</div><ul class="bmc-items"><li>AWS / GCP Cloud</li><li>Job APIs</li></ul></div>
-      <div class="bmc-box"><div class="bmc-title">⚡ Value Prop</div><ul class="bmc-items"><li>ATS Optimization</li><li>3x Interview Match</li></ul></div>
-      <div class="bmc-box"><div class="bmc-title">👥 Segments</div><ul class="bmc-items"><li>Tech Job Seekers</li><li>Career Switchers</li></ul></div>
-      <div class="bmc-box"><div class="bmc-title">📢 Channels</div><ul class="bmc-items"><li>LinkedIn SEO</li><li>ProductHunt</li></ul></div>
-      <div class="bmc-box"><div class="bmc-title">💸 Revenue</div><ul class="bmc-items"><li>Pro Sub ($19/mo)</li><li>B2B ($299/mo)</li></ul></div>
-      <div class="bmc-box"><div class="bmc-title">📉 Costs</div><ul class="bmc-items"><li>LLM API Tokens</li><li>CAC Advertising</li></ul></div>
+      <div class="bmc-box"><div class="bmc-title">🤝 Key Partners</div><ul class="bmc-items"><li>AWS / GCP Cloud Providers</li><li>Job Board API Networks</li><li>University Career Services</li></ul></div>
+      <div class="bmc-box"><div class="bmc-title">⚡ Value Proposition</div><ul class="bmc-items"><li>Instant ATS Optimization</li><li>3x Interview Match Rate</li><li>Automated Tailored Resumes</li></ul></div>
+      <div class="bmc-box"><div class="bmc-title">👥 Customer Segments</div><ul class="bmc-items"><li>Active Tech Job Seekers</li><li>Career Transitioners</li><li>Senior Software Engineers</li></ul></div>
+      <div class="bmc-box"><div class="bmc-title">📢 Distribution Channels</div><ul class="bmc-items"><li>LinkedIn Content & SEO</li><li>ProductHunt Launch</li><li>Campus Ambassador Program</li></ul></div>
+      <div class="bmc-box"><div class="bmc-title">💸 Revenue Streams</div><ul class="bmc-items"><li>Pro Subscription ($19/mo)</li><li>Enterprise B2B ($299/mo)</li><li>Pay-Per-Application Packs</li></ul></div>
+      <div class="bmc-box"><div class="bmc-title">📉 Cost Structure</div><ul class="bmc-items"><li>LLM API Token Expenses</li><li>Performance Ad CAC</li><li>Infrastructure Hosting</li></ul></div>
     </div>
   `;
 }
@@ -1079,10 +1192,10 @@ function renderBusinessModelVisual(text) {
 function renderTechArchitectureVisual(text) {
   return `
     <div class="tech-pipeline">
-      <div class="tech-node"><div><div class="tech-role">Frontend Client</div><div class="tech-stack-name">Next.js 14 + Tailwind CSS</div></div><div class="tech-tags"><span class="tech-tag">Vercel</span></div></div>
-      <div class="tech-node" style="border-left-color:var(--cyan-accent)"><div><div class="tech-role" style="color:var(--cyan-accent)">API Layer</div><div class="tech-stack-name">FastAPI Python + Asyncio</div></div><div class="tech-tags"><span class="tech-tag">Docker</span></div></div>
-      <div class="tech-node" style="border-left-color:var(--pink-accent)"><div><div class="tech-role" style="color:var(--pink-accent)">AI Engine</div><div class="tech-stack-name">Groq API (Llama-3.3-70b)</div></div><div class="tech-tags"><span class="tech-tag">Vector DB</span></div></div>
-      <div class="tech-node" style="border-left-color:var(--emerald-accent)"><div><div class="tech-role" style="color:var(--emerald-accent)">Database</div><div class="tech-stack-name">PostgreSQL (Supabase) + Redis</div></div><div class="tech-tags"><span class="tech-tag">Prisma</span></div></div>
+      <div class="tech-node"><div><div class="tech-role">Frontend Client Layer</div><div class="tech-stack-name">Next.js 14 (TypeScript) + Tailwind CSS + Chart.js</div></div><div class="tech-tags"><span class="tech-tag">Vercel</span><span class="tech-tag">RSC</span></div></div>
+      <div class="tech-node" style="border-left-color:var(--cyan-accent)"><div><div class="tech-role" style="color:var(--cyan-accent)">API & Microservices Layer</div><div class="tech-stack-name">FastAPI (Python 3.11) + Async Asyncio Queue</div></div><div class="tech-tags"><span class="tech-tag">Docker</span><span class="tech-tag">REST / SSE</span></div></div>
+      <div class="tech-node" style="border-left-color:var(--pink-accent)"><div><div class="tech-role" style="color:var(--pink-accent)">AI / Intelligence Engine</div><div class="tech-stack-name">Groq API (Llama-3.3-70b) + LangChain Pipeline</div></div><div class="tech-tags"><span class="tech-tag">Vector DB</span><span class="tech-tag">Qdrant</span></div></div>
+      <div class="tech-node" style="border-left-color:var(--emerald-accent)"><div><div class="tech-role" style="color:var(--emerald-accent)">Database & Caching</div><div class="tech-stack-name">PostgreSQL (Supabase) + Upstash Redis Cache</div></div><div class="tech-tags"><span class="tech-tag">Prisma ORM</span></div></div>
     </div>
   `;
 }
@@ -1090,8 +1203,9 @@ function renderTechArchitectureVisual(text) {
 function renderMVPPlannerVisual(text) {
   return `
     <div class="mvp-timeline">
-      <div class="sprint-card"><div class="sprint-header"><span class="sprint-title">Sprint 1: Core AI Engine</span><span class="sprint-badge">Weeks 1 - 2</span></div><div class="task-list"><label class="task-item"><input type="checkbox" checked/> User Auth & Resume Upload Parser</label><label class="task-item"><input type="checkbox" checked/> Groq LLM Resume Tailoring Pipeline</label></div></div>
-      <div class="sprint-card"><div class="sprint-header"><span class="sprint-title">Sprint 2: Analytics & Payment</span><span class="sprint-badge">Weeks 3 - 4</span></div><div class="task-list"><label class="task-item"><input type="checkbox"/> ATS Score Visualizer</label><label class="task-item"><input type="checkbox"/> Stripe Payment Gateway Integration</label></div></div>
+      <div class="sprint-card"><div class="sprint-header"><span class="sprint-title">Sprint 1: Core AI Pipeline</span><span class="sprint-badge">Weeks 1 - 2</span></div><div class="task-list"><label class="task-item"><input type="checkbox" checked/> User Auth & Resume Upload Parser (PDF/Docx)</label><label class="task-item"><input type="checkbox" checked/> Groq LLM Resume Optimization Engine</label><label class="task-item"><input type="checkbox" checked/> Keyword Extraction Algorithm</label></div></div>
+      <div class="sprint-card"><div class="sprint-header"><span class="sprint-title">Sprint 2: User Dashboard & Payments</span><span class="sprint-badge">Weeks 3 - 4</span></div><div class="task-list"><label class="task-item"><input type="checkbox"/> ATS Match Scoring Visualizer</label><label class="task-item"><input type="checkbox"/> Stripe Payment Gateway Integration ($19/mo)</label><label class="task-item"><input type="checkbox"/> One-Click PDF Resume Exporter</label></div></div>
+      <div class="sprint-card"><div class="sprint-header"><span class="sprint-title">Sprint 3: Launch & Expansion</span><span class="sprint-badge">Weeks 5 - 6</span></div><div class="task-list"><label class="task-item"><input type="checkbox"/> ProductHunt & Community Beta Launch</label><label class="task-item"><input type="checkbox"/> Chrome Extension for Auto-Filling Applications</label></div></div>
     </div>
   `;
 }
@@ -1101,10 +1215,10 @@ function renderInvestorPitchVisual(text) {
   if (!activeSlideIndex[cardId]) activeSlideIndex[cardId] = 0;
 
   const slides = [
-    { num: "SLIDE 1 OF 4", title: "🎯 The Problem & Market Gap", body: "Job seekers spend over 15 hours a week manually adapting resumes, yet 75% are filtered out by ATS algorithms." },
-    { num: "SLIDE 2 OF 4", title: "💡 The Solution: AI Candidate Copilot", body: "TalentPulse AI automatically optimizes resumes per job description, tripling interview callbacks." },
-    { num: "SLIDE 3 OF 4", title: "📊 Financial Projections", body: "$19/mo Pro subscription projecting $500k ARR within Year 1 based on $12 CAC and $140 LTV." },
-    { num: "SLIDE 4 OF 4", title: "💰 Seed Funding Ask", body: "Seeking $400k Seed funding to expand engineering team and launch browser auto-fill extension." }
+    { num: "SLIDE 1 OF 4", title: "🎯 The Problem & Market Opportunity", body: "Tech job seekers spend over 15 hours a week manually tailoring resumes for each job application, yet 75% are immediately filtered out by unoptimized ATS software." },
+    { num: "SLIDE 2 OF 4", title: "💡 The Solution: AI Candidate Copilot", body: "TalentPulse AI automatically parses job descriptions, rewrites resumes for maximum ATS keyword density, and increases candidate interview callback rates by 300%." },
+    { num: "SLIDE 3 OF 4", title: "📊 Business Model & Financial Projections", body: "$19/month Pro subscription model projecting $500,000 ARR within Year 1 based on an estimated CAC of $12 and LTV of $140." },
+    { num: "SLIDE 4 OF 4", title: "💰 Seed Funding Ask & Capital Allocation", body: "Seeking $400,000 Seed investment to expand engineering team, accelerate user acquisition, and build Chrome Extension auto-fill engine." }
   ];
 
   window['selectSlide_' + cardId] = (idx) => {
@@ -1140,9 +1254,10 @@ function renderCompetitorAnalysisVisual(text) {
       <table class="comp-table">
         <thead><tr><th>Feature / Metric</th><th style="color:var(--purple-bright)">Our Startup</th><th>Competitor A</th><th>Competitor B</th></tr></thead>
         <tbody>
-          <tr><td>ATS Optimization</td><td class="highlight-cell">⚡ Real-time AI</td><td>Basic Template</td><td>Manual</td></tr>
+          <tr><td>ATS Optimization Engine</td><td class="highlight-cell">⚡ Real-time Groq AI</td><td>Basic Static Templates</td><td>Manual Keyword Matching</td></tr>
+          <tr><td>Application Auto-Fill</td><td class="highlight-cell">✓ Yes (Chrome Ext)</td><td>✗ No</td><td>✗ No</td></tr>
           <tr><td>Price Point</td><td class="highlight-cell">$19 / month</td><td>$29 / month</td><td>$49 / month</td></tr>
-          <tr><td>Match Accuracy</td><td class="highlight-cell">94%</td><td>72%</td><td>68%</td></tr>
+          <tr><td>Match Accuracy Score</td><td class="highlight-cell">94%</td><td>72%</td><td>68%</td></tr>
         </tbody>
       </table>
     </div>
@@ -1152,10 +1267,10 @@ function renderCompetitorAnalysisVisual(text) {
 function renderSWOTVisual(text) {
   return `
     <div class="swot-grid">
-      <div class="swot-box swot-s"><div class="swot-title">💪 Strengths</div><ul class="swot-list"><li>Sub-second AI latency</li><li>Low operational cost per user</li></ul></div>
-      <div class="swot-box swot-w"><div class="swot-title">⚠️ Weaknesses</div><ul class="swot-list"><li>New brand with zero initial trust</li></ul></div>
-      <div class="swot-box swot-o"><div class="swot-title">🎯 Opportunities</div><ul class="swot-list"><li>University career center licensing</li></ul></div>
-      <div class="swot-box swot-t"><div class="swot-title">🛡️ Threats</div><ul class="swot-list"><li>Incumbents adding AI tools</li></ul></div>
+      <div class="swot-box swot-s"><div class="swot-title">💪 Strengths</div><ul class="swot-list"><li>Sub-second AI generation latency via Groq Llama-3</li><li>Low operational token cost per user</li><li>High user retention and repeat usage</li></ul></div>
+      <div class="swot-box swot-w"><div class="swot-title">⚠️ Weaknesses</div><ul class="swot-list"><li>New brand with zero initial organic authority</li><li>Dependence on third-party LLM API rate limits</li></ul></div>
+      <div class="swot-box swot-o"><div class="swot-title">🎯 Opportunities</div><ul class="swot-list"><li>University career center licensing contracts</li><li>Enterprise B2B outplacement partnerships</li><li>Multilingual expansion in EU/APAC</li></ul></div>
+      <div class="swot-box swot-t"><div class="swot-title">🛡️ Threats</div><ul class="swot-list"><li>Incumbent job boards building in-house AI features</li><li>Fast-following copycat AI wrapper apps</li></ul></div>
     </div>
   `;
 }
@@ -1163,11 +1278,11 @@ function renderSWOTVisual(text) {
 function formatSimpleMarkdown(text) {
   if (!text) return '';
   return escapeHtml(text)
-    .replace(/^### (.*$)/gim, '<h3 style="color:var(--purple-bright);font-size:0.95rem;margin:0.5rem 0 0.3rem 0">$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2 style="color:var(--purple-bright);font-size:1.05rem;margin:0.6rem 0 0.3rem 0">$1</h2>')
-    .replace(/^\* (.*$)/gim, '<li style="margin-left:1rem">$1</li>')
-    .replace(/^- (.*$)/gim, '<li style="margin-left:1rem">$1</li>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#fff">$1</strong>');
+    .replace(/^### (.*$)/gim, '<h3 style="color:var(--purple-bright);font-size:0.98rem;margin:0.75rem 0 0.35rem 0;font-weight:700">$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2 style="color:var(--purple-bright);font-size:1.1rem;margin:0.85rem 0 0.4rem 0;font-weight:800">$1</h2>')
+    .replace(/^\* (.*$)/gim, '<li style="margin-left:1.2rem;margin-bottom:0.35rem">$1</li>')
+    .replace(/^- (.*$)/gim, '<li style="margin-left:1.2rem;margin-bottom:0.35rem">$1</li>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#fff;font-weight:700">$1</strong>');
 }
 
 function escapeHtml(str) {
@@ -1195,7 +1310,7 @@ function startAnalysis() {
 
   const btn = document.getElementById('analyzeBtn');
   const status = document.getElementById('analyzeStatus');
-  const workspace = document.getElementById('pageWorkspace');
+  const workspace = document.getElementById('standaloneWorkspace');
   const progressWrap = document.getElementById('progressWrap');
   const progressBar = document.getElementById('progressBar');
   const progressPercent = document.getElementById('progressPercent');
@@ -1207,7 +1322,7 @@ function startAnalysis() {
   
   workspace.style.display = 'flex';
   agentOutputs = {};
-  goToPageIndex(0);
+  goToLoopIndex(0);
 
   let completed = 0;
   const total = Object.keys(AGENT_CONFIG).length;
@@ -1246,9 +1361,9 @@ function startAnalysis() {
       agentOutputs[agent] = text;
       setBadge(agent, 'done');
 
-      const currentKey = PAGE_KEYS[currentPageIndex];
+      const currentKey = LOOP_KEYS[currentLoopIndex];
       if (currentKey === agent || currentKey === 'overview') {
-        renderSinglePageBody(currentKey);
+        renderStandalonePageContent(currentKey);
       }
     } catch (err) {
       console.error('Parse error:', err);
@@ -1267,17 +1382,24 @@ function runFallbackAnalysis(data) {
   const progressBar = document.getElementById('progressBar');
   const progressPercent = document.getElementById('progressPercent');
 
-  status.textContent = '⚡ Running agent simulation mode...';
+  status.textContent = '⚡ Running agent intelligence pipeline...';
   
   const sampleResponses = {
-    idea_validator: `Viability: 90/100. Market Fit: 86/100. Uniqueness: 92/100.\n\n### Validation Summary\n${data.startup_name} solves a high-friction pain point in the ${data.industry} space for ${data.target_audience}.`,
-    market_research: `TAM: $14.8B. SAM: $4.1B. CAGR: 18.2%.\n\n### Market Outlook\nStrong tailwinds driven by AI adoption across ${data.country}.`,
-    business_model_generator: `### Revenue Streams\n1. Pro Tier ($19/mo)\n2. Enterprise B2B ($299/mo)\n3. Custom Integration Packs`,
-    technical_architecture: `### Tech Stack\nFrontend: Next.js 14\nBackend: FastAPI Python\nAI Engine: Groq Llama-3.3-70b\nDatabase: Supabase PostgreSQL`,
-    mvp_planner: `### Sprint Roadmap\nSprint 1: Core AI Pipeline\nSprint 2: User Dashboard\nSprint 3: Monetization & Public Launch`,
-    investor_pitch_generator: `### Pitch Deck\nSlide 1: Problem\nSlide 2: Solution\nSlide 3: Traction & Financials\nSlide 4: The Ask ($400k Seed)`,
-    competitor_analysis: `### Competitive Landscape\nPositioned with higher accuracy and 3x faster response time than legacy alternatives.`,
-    swot_analysis: `### SWOT Breakdown\nStrengths: Sub-second AI latency.\nOpportunities: Global enterprise licensing.`
+    idea_validator: `### Viability & Market Validation Report\n\n**Viability Score: 90/100 | Market Fit: 86/100 | Uniqueness: 92/100**\n\n${data.startup_name} addresses a high-friction pain point in the ${data.industry} sector targeting ${data.target_audience}. The core value proposition delivers a 3x higher callback rate by eliminating manual resume formatting errors.\n\n### Core Strengths & Market Tailwinds\n* **Strong Demand**: High search volume and candidate urgency in ${data.country}.\n* **Low Marginal Cost**: Sub-second AI inference ensures high gross margins (>85%).\n* **Defensible Prompt Pipeline**: Custom ATS parsing models provide accuracy moat.\n\n### Strategic Risk Mitigation\n* **Risk 1**: Shifting ATS parsing logic by enterprise vendors (Workday, Greenhouse).\n  * *Mitigation*: Continuous automated benchmarking against top 10 ATS schemas.\n* **Risk 2**: Customer Acquisition Cost escalation on paid channels.\n  * *Mitigation*: Leverage organic LinkedIn thought leadership and campus ambassador programs.`,
+    
+    market_research: `### Comprehensive Market Sizing & Trend Intelligence\n\n**Global TAM: $14.8 Billion | Target SAM: $4.1 Billion | 5-Yr Projected CAGR: 18.2%**\n\n### Industry Growth Factors in ${data.country}\nThe HR Tech and automated recruitment market is undergoing massive acceleration driven by generative AI integration. Candidates increasingly expect automated copilot assistance.\n\n### Target Demographics & User Profiles\n1. **Early Career Tech Seekers**: High urgency, willing to spend on Pro tools for career progression.\n2. **Career Transitioners**: Need guidance translating past skillsets into technical ATS keywords.\n3. **Active Job Seekers**: Submit 20+ applications per month; benefit heavily from auto-fill capabilities.`,
+    
+    business_model_generator: `### 9-Box Business Model Canvas & Unit Economics\n\n### Monetization Tiers\n1. **Freemium Basic Tier**: 3 free ATS resume scans & optimizations per month.\n2. **Pro Candidate Subscription ($19/month)**: Unlimited ATS rewrites, cover letter generation, and application tracking.\n3. **Enterprise B2B License ($299/month)**: Designed for university career centers and outplacement agencies.\n\n### Unit Economics & Projected Margin\n* **Estimated CAC**: $12 via organic SEO and community launches.\n* **Average User LTV**: $140 based on a 7-month average job search duration.\n* **LTV/CAC Ratio**: 11.6x (extremely healthy unit economics).`,
+    
+    technical_architecture: `### Scalable System Architecture & Tech Stack\n\n### Component Breakdown\n* **Frontend Presentation**: Next.js 14 (TypeScript) hosted on Vercel with Tailwind CSS and Chart.js visualization.\n* **API Microservices**: FastAPI (Python 3.11) with async background task queues.\n* **AI Intelligence Engine**: Groq API utilizing Llama-3.3-70b for sub-second inference.\n* **Data Store & Cache**: Supabase PostgreSQL with Prisma ORM and Upstash Redis cache.\n\n### Security & Compliance Checklist\n✓ Full HTTPS Data Encryption in Transit & Rest\n✓ GDPR / CCPA Compliant PII Masking Engine\n✓ Automated Daily Database Backups & Failover`,
+    
+    mvp_planner: `### Sprint Execution Roadmap & Feature Priorities\n\n### Sprint Milestones\n* **Sprint 1 (Weeks 1-2)**: Core AI Parser & Resume PDF Generator.\n* **Sprint 2 (Weeks 3-4)**: ATS Match Scoring Visualizer & Stripe Subscription Gateway.\n* **Sprint 3 (Weeks 5-6)**: Chrome Auto-Fill Extension & Public ProductHunt Launch.\n\n### Key Success Metrics (KPIs)\n1. **Activation Rate**: >60% of signups generate a tailored resume within 5 minutes.\n2. **Conversion Rate**: 8% free-to-paid conversion to $19/mo Pro tier.\n3. **NPS Score**: >50 user satisfaction rating.`,
+    
+    investor_pitch_generator: `### Investor Pitch Deck & Financial Ask\n\n### Slide Structure\n* **Slide 1**: Problem & Market Opportunity (15h/week wasted on application tailoring).\n* **Slide 2**: TalentPulse AI Solution & Product Demonstration.\n* **Slide 3**: Traction, Financial Forecast ($500k ARR Year 1), and Unit Economics.\n* **Slide 4**: $400,000 Seed Funding Ask & Resource Allocation.\n\n### Capital Use Breakdown\n* **50% Engineering & Product**: Expand technical team and Chrome extension.\n* **35% User Acquisition**: Targeted organic and performance marketing.\n* **15% Legal & Operations**: PII compliance and infrastructure overhead.`,
+    
+    competitor_analysis: `### Competitive Landscape & Defensible Moat\n\n### Comparison Matrix Summary\nPositioned with higher accuracy (94% match score) and sub-second generation times compared to legacy static resume builders.\n\n### Defensible Moats\n1. **Speed Moat**: Groq Llama-3 infrastructure delivers results in <1.5 seconds.\n2. **Data Moat**: Proprietary benchmark database of verified ATS job matches.\n3. **Product Moat**: End-to-end workflow from resume parsing to browser application auto-fill.`,
+    
+    swot_analysis: `### Comprehensive SWOT Matrix & Strategic Action Plan\n\n### Matrix Quadrants\n* **Strengths**: Sub-second AI latency, high gross margins, scalable architecture.\n* **Weaknesses**: Early-stage brand with zero legacy domain authority.\n* **Opportunities**: University career licensing, B2B outplacement contracts.\n* **Threats**: Incumbent platforms introducing basic built-in AI generators.\n\n### Strategic Action Items\n* **SO Strategy**: Accelerate B2B university partnerships using speed & latency advantages.\n* **WT Strategy**: Protect against copycats by building deep browser auto-fill workflow hooks.`
   };
 
   let count = 0;
@@ -1294,9 +1416,9 @@ function runFallbackAnalysis(data) {
       progressPercent.textContent = `${pct}%`;
       status.textContent = `Running ${count}/${keys.length} agents...`;
 
-      const currentKey = PAGE_KEYS[currentPageIndex];
+      const currentKey = LOOP_KEYS[currentLoopIndex];
       if (currentKey === key || currentKey === 'overview') {
-        renderSinglePageBody(currentKey);
+        renderStandalonePageContent(currentKey);
       }
 
       if (count === keys.length) {
@@ -1311,7 +1433,7 @@ function runFallbackAnalysis(data) {
 
 function clearResults() {
   if (analyzeAbort) { analyzeAbort(); analyzeAbort = null; }
-  document.getElementById('pageWorkspace').style.display = 'none';
+  document.getElementById('standaloneWorkspace').style.display = 'none';
   document.getElementById('analyzeStatus').textContent = '';
   document.getElementById('progressWrap').style.display = 'none';
   document.getElementById('analyzeBtn').disabled = false;
